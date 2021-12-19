@@ -16,10 +16,14 @@ def addTask():
         tkinter.messagebox.showwarning(title="Uwaga!", message="Nie wpisano zadania!")
 
 def load_tasks():
-    tasks = pickle.load(open("tasks.dat", "rb"))
-    tasksList.delete(0, tkinter.END)
-    for task in tasks:
-        tasksList.insert(tkinter.END, task)
+    try:
+        tasks = pickle.load(open("tasks.dat", "rb"))
+        tasksList.delete(0, tkinter.END)
+        for task in tasks:
+            tasksList.insert(tkinter.END, task)
+    except:
+        save_tasks()
+
 
 def save_tasks():
     tasks = tasksList.get(0, tasksList.size())
@@ -70,7 +74,6 @@ button_delete_task.pack()
 
 
 # initial functions
-save_tasks()
 load_tasks()
 # it stop's window from closing
 root.mainloop()
