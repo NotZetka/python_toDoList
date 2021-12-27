@@ -60,7 +60,7 @@ tasksList.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=tasksList.yview)
 
 # textbox for entering tasks
-entryTask = tkinter.Entry(root, width=40)
+entryTask = tkinter.Entry(root, width=38)
 entryTask.pack()
 
 # addbutton
